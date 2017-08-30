@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { createStore } from 'redux'
+import { Provider } from 'react-redux'
 import Counter from './Counter'
 
 import './App.css'
@@ -17,36 +18,24 @@ function counter(oldState = { count: 0 }, action) {
   }
 }
 
-let store = createStore(counter)
+let store = createStore(counter, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 class App extends Component {
-  state = {
-    count: 0
-  }
-
-  _click = () => {
-    store.dispatch({ type: 'INCREMENT' })
-  }
-
-  componentDidMount() {
-    store.subscribe(() => {
-      this.setState(store.getState())
-    })
-  }
-
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img
-            src="https://camo.githubusercontent.com/f28b5bc7822f1b7bb28a96d8d09e7d79169248fc/687474703a2f2f692e696d6775722e636f6d2f4a65567164514d2e706e67"
-            className="App-logo"
-            alt="logo"
-          />
-          <h2>Welcome to Redux</h2>
+      <Provider store={store}>
+        <div className="App">
+          <div className="App-header">
+            <img
+              src="https://camo.githubusercontent.com/f28b5bc7822f1b7bb28a96d8d09e7d79169248fc/687474703a2f2f692e696d6775722e636f6d2f4a65567164514d2e706e67"
+              className="App-logo"
+              alt="logo"
+            />
+            <h2>Welcome to Redux</h2>
+          </div>
+          <Counter />
         </div>
-        <Counter count={this.state.count} click={this._click} />
-      </div>
+      </Provider>
     )
   }
 }
