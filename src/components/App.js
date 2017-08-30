@@ -1,24 +1,10 @@
 import React, { Component } from 'react'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
-import Counter from './Counter'
+import reducer from '../reducers'
+import Counter from './CounterContainer'
 
-import './App.css'
-
-// For every action, this function will recieve the current state
-// and the action, and should return what the next state should be.
-function counter(oldState = { count: 0 }, action) {
-  switch (action.type) {
-    case 'INCREMENT':
-      return { count: oldState.count + 1 }
-    case 'DECREMENT':
-      return { count: oldState.count - 1 }
-    default:
-      return oldState
-  }
-}
-
-let store = createStore(counter, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+let store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 class App extends Component {
   render() {

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import T from 'prop-types'
 
 class Counter extends Component {
@@ -22,15 +21,4 @@ class Counter extends Component {
   }
 }
 
-export default connect(
-  state => {
-    return {
-      counter: state.count
-    }
-  },
-  dispatch => {
-    return {
-      click: () => dispatch({ type: 'INCREMENT' })
-    }
-  }
-)(Counter)
+export default Counter
