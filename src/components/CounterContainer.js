@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import CounterView from './CounterView'
-import { increment } from '../actions'
+import { increment, decrement } from '../actions'
 
 const mapStateToProps = state => {
   return {
@@ -10,7 +10,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    click: () => dispatch(increment())
+    decrement: () => dispatch(decrement()),
+    increment: () => dispatch(increment())
   }
 }
 

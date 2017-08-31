@@ -4,18 +4,18 @@ import T from 'prop-types'
 class Counter extends Component {
   static propTypes = {
     count: T.number,
-    click: T.func.isRequired
+    increment: T.func.isRequired,
+    decrement: T.func.isRequired
   }
 
   render() {
     return (
       <div className="Counter">
-        <p className="App-intro">
-          You have clicked the button {this.props.counter} times.
-        </p>
-        <p>
-          <button onClick={this.props.click}>Click Me!</button>
-        </p>
+        <button onClick={this.props.decrement}>-</button>
+        <span>
+          {this.props.counter}
+        </span>
+        <button onClick={this.props.increment}>+</button>
       </div>
     )
   }

@@ -3,6 +3,7 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import reducer from '../reducers'
 import Counter from './CounterContainer'
+import PeopleList from './PeopleListContainer'
 
 let store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
@@ -20,6 +21,7 @@ class App extends Component {
             <h2>Welcome to Redux</h2>
           </div>
           <Counter />
+          <PeopleList />
         </div>
       </Provider>
     )
