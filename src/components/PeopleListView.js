@@ -1,11 +1,12 @@
 import React from 'react'
-
-const PersonView = ({ name, removePerson }) =>
+import Counter from './CounterContainer'
+const PersonView = ({ name, removePerson, index }) =>
   <li>
     <h2>
       {name}
     </h2>
-    <button onClick={removePerson}>x</button>
+    <Counter index={index} />
+    <button onClick={() => removePerson(index)}>x</button>
   </li>
 
 class PeopleListView extends React.Component {
@@ -20,7 +21,12 @@ class PeopleListView extends React.Component {
       <main className="peopleList">
         <ul>
           {this.props.people.map((person, i) =>
-            <PersonView {...person} removePerson={() => this.props.removePerson(i)} key={i} />
+            <PersonView
+              {...person}
+              index={i}
+              removePerson={this.props.removePerson}
+              key={i}
+            />
           )}
         </ul>
         <form onSubmit={this._submit}>

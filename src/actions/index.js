@@ -1,9 +1,9 @@
-export const increment = () => {
-  return { type: 'INCREMENT' }
+export const increment = index => {
+  return { type: 'INCREMENT', index }
 }
 
-export const decrement = () => {
-  return { type: 'DECREMENT' }
+export const decrement = index => {
+  return { type: 'DECREMENT', index }
 }
 
 export const addPerson = name => {

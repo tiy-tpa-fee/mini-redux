@@ -2,16 +2,16 @@ import { connect } from 'react-redux'
 import CounterView from './CounterView'
 import { increment, decrement } from '../actions'
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, { index }) => {
   return {
-    counter: state.counter
+    counter: state.people[index].counter
   }
 }
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch, { index }) => {
   return {
-    decrement: () => dispatch(decrement()),
-    increment: () => dispatch(increment())
+    decrement: () => dispatch(decrement(index)),
+    increment: () => dispatch(increment(index))
   }
 }
 
