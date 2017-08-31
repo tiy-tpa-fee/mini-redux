@@ -12,3 +12,10 @@ export const addPerson = name => {
     name
   }
 }
+
+export const removePerson = index => {
+  return {
+    type: 'REMOVE_PERSON',
+    index
+  }
+}

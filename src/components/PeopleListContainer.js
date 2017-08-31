@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { addPerson } from '../actions'
+import { addPerson, removePerson } from '../actions'
 import PeopleListView from './PeopleListView'
 
 const mapStateToProps = state => {
@@ -10,7 +10,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    addPerson: name => dispatch(addPerson(name))
+    addPerson: name => dispatch(addPerson(name)),
+    removePerson: index => dispatch(removePerson(index))
   }
 }
 

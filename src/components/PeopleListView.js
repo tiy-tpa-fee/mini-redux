@@ -1,11 +1,11 @@
 import React from 'react'
 
-const PersonView = ({ name }) =>
+const PersonView = ({ name, removePerson }) =>
   <li>
     <h2>
       {name}
     </h2>
-    <button>x</button>
+    <button onClick={removePerson}>x</button>
   </li>
 
 class PeopleListView extends React.Component {
@@ -19,7 +19,9 @@ class PeopleListView extends React.Component {
     return (
       <main className="peopleList">
         <ul>
-          {this.props.people.map((person, i) => <PersonView {...person} key={i} />)}
+          {this.props.people.map((person, i) =>
+            <PersonView {...person} removePerson={() => this.props.removePerson(i)} key={i} />
+          )}
         </ul>
         <form onSubmit={this._submit}>
           <h3>New Person</h3>
