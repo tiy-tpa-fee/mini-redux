@@ -1,4 +1,4 @@
-# Props vs State
+# Understanding Props vs State
 
 ```JavaScript
 <Multiply a="4" b="2" />  // => 8
@@ -6,9 +6,10 @@
 
 ```JavaScript
 const multiply = (a, b) => {  // <-- Props
-  const product = a * b    // <-- State
+  const product = a * b       // <-- State
   return product
 }
+```
 
 ```JavaScript
 <Square n="4" />     // ==> 16
@@ -30,7 +31,9 @@ const square = (n) => {          // <-=  props
 }
 ```
 
+```JavaScript
 // multiply(4, 2)  // => 8
+```
 
 > Props are just like parameters/arguments to a function
 > State is like internal variables scoped to a function
